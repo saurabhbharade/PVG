@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.model.Company;
+import com.model.CompanyCriteria;
+import com.service.CompanyCriteriaServiceImpl;
 import com.service.CompanyService;
 import com.service.CompanyServiceImpl;
 
@@ -40,10 +42,13 @@ public class CompaniesVisitedInAYear extends HttpServlet {
 		HttpSession session = request.getSession(true);
 		String year_in_string = request.getParameter("year");
 		int year_in_int = Integer.parseInt(year_in_string);
+
+		List<CompanyCriteria> companyByYear = new CompanyCriteriaServiceImpl().getCompanyByYear(year_in_int);
 		
-		CompanyService companyService = new CompanyServiceImpl();
-		List<Company> companyByYear = companyService.getCompanyByYear(year_in_int);
+//		CompanyService companyService = new CompanyServiceImpl();
+//		List<Company> companyByYear = companyService.getCompanyByYear(year_in_int);
 		session.setAttribute("CompanyCriteriaList", companyByYear);
+//		response.getWriter().append(""+companyByYear.size());
 		
 		RequestDispatcher requestDispatcher=request.getRequestDispatcher("ViewCompanyCriteriaDisplay.jsp");
 		 requestDispatcher.forward(request, response);

@@ -9,6 +9,7 @@ import com.service.CompanyCriteriaServiceImpl;
 import com.service.CompanyServiceImpl;
 import com.service.EnrollmentServiceImpl;
 import com.service.StudentServiceImpl;
+import com.service.TpoAssistantServiceImpl;
 
 public class ServiceMain {
 
@@ -21,10 +22,10 @@ public class ServiceMain {
 //		boolean addEnrollmentService = new EnrollmentServiceImpl().addEnrollmentService(student, company);
 //		System.out.println(addEnrollmentService);
 
-		List<CompanyCriteria> companyCriteriaList = new CompanyCriteriaServiceImpl().getCompanyCriteriaService(2202);
+		List<CompanyCriteria> companyCriteriaList = new CompanyCriteriaServiceImpl().getCompanyCriteriaService(1201);
 		System.out.println(companyCriteriaList.size());
-//		
-
+		List<Student> studentEligibileForCompany = new TpoAssistantServiceImpl().getStudentEligibileForCompany(companyCriteriaList);
+		System.out.println(studentEligibileForCompany.size());
 	}
 
 }

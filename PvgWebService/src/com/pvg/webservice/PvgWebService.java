@@ -1,5 +1,6 @@
 package com.pvg.webservice;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.jws.WebService;
@@ -16,7 +17,8 @@ public class PvgWebService {
 
 	public List<Student> getListOfStudentFromPvg(int cid,String cname,float salary,String designation,String location,float ssc,float hsc,float beaggregate,int backlog,int numrequired,int poolcampus,int critid,int yop,List<String> branch)	
 	{
-		Company company=new Company(cid, backlog, numrequired, poolcampus, cname, designation, location, salary, ssc, hsc, beaggregate, null);
+		Date date=new Date(System.currentTimeMillis());
+		Company company=new Company(cid, backlog, numrequired, poolcampus, cname, designation, location, salary, ssc, hsc, beaggregate, date);
 		new CompanyServiceImpl().addCompanyService(company);
 		for(int i=0;i<branch.size();i++)
 		{
