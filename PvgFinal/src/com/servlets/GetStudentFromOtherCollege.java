@@ -93,12 +93,13 @@ public class GetStudentFromOtherCollege extends HttpServlet {
 			float beaggregateOfStudent=listOfStudentFromMescoe.get(i).getBeaggregate();
 			com.model.Student studentOfOtherCollege=new com.model.Student(sid, backlogOfStudent, statusOfStudent, passwordOfStudent, sname, branchOfStudent, instituteNameOfStudent, email, phone, yopOfStudent, sscMarksOfStudent, hscMarksOfStudent, beaggregateOfStudent);
 			unplacedStudentList.add(studentOfOtherCollege);
+		}
 			response.getWriter().append("list size after adding : "+unplacedStudentList.size());
 			session.setAttribute("ListofStudents", unplacedStudentList);
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher("StudentList1.jsp");
 			requestDispatcher.forward(request, response);
 
-		}
+		
 
 	}
 
