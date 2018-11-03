@@ -22,7 +22,7 @@ public class PvgWebService {
 		new CompanyServiceImpl().addCompanyService(company);
 		for(int i=0;i<branch.size();i++)
 		{
-			new CompanyCriteriaServiceImpl().addCompanyCriteriaService(company, yop, branch.get(0));
+			new CompanyCriteriaServiceImpl().addCompanyCriteriaService(company, yop, branch.get(i));
 		}
 		List<CompanyCriteria> companyCriteriaList = new CompanyCriteriaServiceImpl().getCompanyCriteriaService(cid);
 		return new TpoAssistantServiceImpl().getStudentEligibileForCompany(companyCriteriaList);
